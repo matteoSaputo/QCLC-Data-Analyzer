@@ -178,7 +178,3 @@ cython_debug/
 *.xls
 *.xlsx
 *.csv
-
-# Ignore images
-*.png
-*.jpeg
