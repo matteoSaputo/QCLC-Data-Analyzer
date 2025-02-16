@@ -1,6 +1,6 @@
 # **QCLC Data Analyzer**
 
-This repository contains scripts and example outputs for cleaning up tutoring center data and generating charts/graphs to analyze trends at the [**Queens College Learning Commons (QCLC)**, or your institution’s tutoring center]. The project is broken into **data-cleanup** scripts and **graph-generation** scripts, plus a **combined roster** workflow.
+This repository contains scripts and example outputs for cleaning up tutoring center data and generating charts/graphs to analyze trends at the [**Queens College Learning Commons (QCLC)**]. The project is broken into **data-cleanup** scripts and **graph-generation** scripts, plus a **combined roster** workflow.
 
 ## **Table of Contents**
 1. [Project Overview](#project-overview)
