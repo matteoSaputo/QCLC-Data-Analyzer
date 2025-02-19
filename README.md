@@ -1,24 +1,47 @@
 # **QCLC Data Analyzer**
 
-This repository contains scripts and example outputs for cleaning up tutoring center data and generating charts/graphs to analyze trends at the [**Queens College Learning Commons (QCLC)**]. The project is broken into **data-cleanup** scripts and **graph-generation** scripts.
+This repository contains scripts and example outputs for cleaning up tutoring center data and generating charts/graphs to analyze trends at the **Queens College Learning Commons (QCLC)**. The project is broken into **data-cleanup** scripts and **graph-generation** scripts.
 
 ## **Table of Contents**
 1. [Project Overview](#project-overview)
-2. [Data Flow](#data-flow)
-3. [Scripts](#scripts)
+2. [Technologies Used](#technologies-used)
+3. [Data Flow](#data-flow)
+4. [Scripts](#scripts)
    - [Data Cleanup Scripts](#data-cleanup-scripts)
    - [Roster Combination](#roster-combination)
    - [Course Validation](#course-validation)
    - [Graph Generation](#graph-generation)
-4. [Usage](#usage)
-5. [Example Outputs](#example-outputs)
-6. [Contributing](#contributing)
-7. [License](#license)
+5. [Usage](#usage)
+6. [Example Outputs](#example-outputs)
+7. [Contributing](#contributing)
+8. [License](#license)
 
 ---
 
 ## **Project Overview**
 The **QCLC Data Analyzer** automates much of the data cleanup and analysis needed to ensure accurate records of tutoring sessions, then produces a variety of charts to help visualize patterns—such as **walk-ins vs. appointments**, **top frequent visitors**, **tutor workloads**, and **grade distributions** of tutored vs. non-tutored students.
+
+---
+
+## **Technologies Used**
+
+- **Python 3.x**  
+  Core language used for data processing and script development.
+
+- **pandas**  
+  Data manipulation and analysis library. Used for reading, cleaning, and merging spreadsheets.
+
+- **openpyxl**  
+  Python library for reading and writing Excel files, enabling row/column cell formatting.
+
+- **matplotlib**  
+  Visualization library used for generating bar charts, pie charts, and other plots.
+
+- **Jupyter Notebook** *(optional)*  
+  Helpful for interactive development, quick testing, and step-by-step data exploration.
+
+- **glob**  
+  Standard Python library for file pattern matching, used in combining multiple roster files automatically.
 
 ---
 
