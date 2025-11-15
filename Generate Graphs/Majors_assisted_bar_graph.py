@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 check_in_form = pd.read_excel('course_validation.xlsx')
 
 # Extract major from course names (assumes major is the prefix before the space)
-check_in_form['Major'] = check_in_form['what course do you need assistance with?'].str.split().str[0]
+check_in_form['Major'] = check_in_form['what course do you need assistance with'].str.split().str[0]
 
 # Get the value counts of majors
 major_counts = check_in_form['Major'].value_counts()
@@ -34,7 +34,7 @@ for bar, value in zip(bars, filtered_majors):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
         bar.get_height() + 1,
-        f'{percentage:.1f}%',
+        f'{value}',
         ha='center',
         fontsize=12
     )
@@ -48,7 +48,7 @@ plt.yticks(fontsize=12)
 
 # Save the bar graph
 plt.tight_layout()
-plt.savefig('Relevant_graphs/Majors_Assisted_Bar_Graph.png')  # Save to the folder
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Majors_Assisted_Bar_Graph.png')  # Save to the folder
 plt.show()  # Display the chart for debugging purposes
 plt.close()  # Close the figure to free memory
 

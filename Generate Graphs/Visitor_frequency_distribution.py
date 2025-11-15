@@ -31,7 +31,7 @@ ax.text(
 
 # Save the chart as a PNG file
 plt.tight_layout()  # Ensure everything fits within the figure
-plt.savefig('Relevant_graphs/Visitor_Frequency_Distribution.png')  # Save to the folder
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Visitor_Frequency_Distribution.png')  # Save to the folder
 plt.show() # Display the chart for debugging purposes
 plt.close()  # Close the figure to free memory
 

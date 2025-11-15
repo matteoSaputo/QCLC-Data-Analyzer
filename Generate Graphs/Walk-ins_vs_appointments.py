@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 check_in_form = pd.read_excel('course_validation.xlsx')
 
 # Get the value counts for appointments
-appointment_counts = check_in_form['do you have an appointment?'].value_counts()
+appointment_counts = check_in_form['do you have an appointment'].value_counts()
 
 # Calculate the total counts
 total_count = appointment_counts.sum()
@@ -20,7 +20,7 @@ for bar, value in zip(bars, appointment_counts.values):
     ax.text(
         bar.get_x() + bar.get_width() / 2,  # X-coordinate: Center of the bar
         bar.get_height() + 1,              # Y-coordinate: Slightly above the bar
-        f'{percentage:.1f}%',              # Label: Percentage with 1 decimal place
+        f'{value} ({percentage:.1f}%)',              # Label: Percentage with 1 decimal place
         ha='center',                       # Align horizontally to center
         fontsize=12                        # Font size for the annotations
     )
@@ -36,7 +36,7 @@ plt.yticks(fontsize=12)
 
 # Save the chart as a PNG file
 plt.tight_layout()  # Ensure everything fits within the figure
-plt.savefig('Relevant_graphs/Walk_Ins_vs_Appointments.png')  # Save to the folder
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Walk_Ins_vs_Appointments.png')  # Save to the folder
 plt.show() # Display the chart for debugging purposes (if using vscode, close the figure to finish running the script)
 plt.close()  # Close the figure to free memory
 

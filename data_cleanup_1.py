@@ -17,11 +17,11 @@ check_in_form.columns = check_in_form.columns.str.lower().str.strip()
 all_enrolled.columns = all_enrolled.columns.str.lower().str.strip()
 
 # Ensure names and IDs are strings
-check_in_form['student id'] = check_in_form['student id'].astype(str).str.strip()
+check_in_form['student id'] = check_in_form['student id'].astype(str).str.strip().str.lower()
 check_in_form['first name'] = check_in_form['first name'].str.strip().str.lower()
 check_in_form['last name'] = check_in_form['last name'].str.strip().str.lower()
 
-all_enrolled['student id'] = all_enrolled['student id'].astype(str).str.strip()
+all_enrolled['student id'] = all_enrolled['student id'].astype(str).str.strip().str.lower()
 all_enrolled['first name'] = all_enrolled['first name'].str.strip().str.lower()
 all_enrolled['last name'] = all_enrolled['last name'].str.strip().str.lower()
 

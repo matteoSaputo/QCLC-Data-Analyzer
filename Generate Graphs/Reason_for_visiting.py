@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 check_in_form = pd.read_excel('course_validation.xlsx')
 
 # Get the value counts for reasons
-reason_counts = check_in_form['i am here to:'].value_counts()
+reason_counts = check_in_form['i am here to'].value_counts()
 
 # Calculate the total count
 total_count = reason_counts.sum()
@@ -20,7 +20,7 @@ for bar, value in zip(bars, reason_counts.values):
     ax.text(
         bar.get_x() + bar.get_width() / 2,  # X-coordinate: Center of the bar
         bar.get_height() + 1,              # Y-coordinate: Slightly above the bar
-        f'{percentage:.1f}%',              # Label: Percentage with 1 decimal place
+        f'{value} ({percentage:.1f}%)',              # Label: Percentage with 1 decimal place
         ha='center',                       # Align horizontally to center
         fontsize=12                        # Font size for the annotations
     )
@@ -36,7 +36,7 @@ plt.yticks(fontsize=12)
 
 # Save the chart as a PNG file
 plt.tight_layout()  # Ensure everything fits within the figure
-plt.savefig('Relevant_graphs/Reasons_for_Visiting.png')  # Save to the folder
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Reasons_for_Visiting.png')  # Save to the folder
 plt.show() # Display the chart for debugging purposes (if using vscode, close the figure to finish running the script)
 plt.close()  # Close the figure to free memory
 

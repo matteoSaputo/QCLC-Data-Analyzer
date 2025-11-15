@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 check_in_form = pd.read_excel('course_validation.xlsx')
 
 # Extract major from course names (assumes major is the prefix before the space)
-check_in_form['Major'] = check_in_form['what course do you need assistance with?'].str.split().str[0]
+check_in_form['Major'] = check_in_form['what course do you need assistance with'].str.split().str[0]
 
 # Get the value counts of majors
 major_counts = check_in_form['Major'].value_counts()
@@ -53,7 +53,7 @@ plt.ylabel('')
 
 # Save the pie chart
 plt.tight_layout()
-plt.savefig('Relevant_graphs/Majors_Assisted_Pie_Chart.png')
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Majors_Assisted_Pie_Chart.png')
 plt.show()
 plt.close()
 

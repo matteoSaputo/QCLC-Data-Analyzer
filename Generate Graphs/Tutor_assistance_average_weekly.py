@@ -5,17 +5,17 @@ import matplotlib.pyplot as plt
 check_in_form = pd.read_excel('course_validation.xlsx')
 
 # Ensure 'start time' is in datetime format
-check_in_form['start time'] = pd.to_datetime(check_in_form['start time'])
+check_in_form['timestamp'] = pd.to_datetime(check_in_form['timestamp'])
 
 # Extract year and week number from 'start time'
-check_in_form['week'] = check_in_form['start time'].dt.isocalendar().week
-check_in_form['year'] = check_in_form['start time'].dt.year
+check_in_form['week'] = check_in_form['timestamp'].dt.isocalendar().week
+check_in_form['year'] = check_in_form['timestamp'].dt.year
 
 # Group by tutor and week to count students helped per week
-weekly_tutor_counts = check_in_form.groupby(['who assisted?', 'year', 'week']).size().reset_index(name='students_helped')
+weekly_tutor_counts = check_in_form.groupby(['who assisted', 'year', 'week']).size().reset_index(name='students_helped')
 
 # Calculate the average number of students helped per week for each tutor
-tutor_weekly_averages = weekly_tutor_counts.groupby('who assisted?')['students_helped'].mean()
+tutor_weekly_averages = weekly_tutor_counts.groupby('who assisted')['students_helped'].mean()
 
 # Sort by the average to show busiest tutors first
 tutor_weekly_averages = tutor_weekly_averages.sort_values(ascending=False)
@@ -45,7 +45,7 @@ plt.yticks(fontsize=12)
 
 # Save the chart
 plt.tight_layout()
-plt.savefig('Relevant_graphs/Tutor_Assistance_Average_Weekly.png')  # Save the chart
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Tutor_Assistance_Average_Weekly.png')  # Save the chart
 plt.show() # Display the chart for debugging purposes
 plt.close()  # Close the figure to free memory
 

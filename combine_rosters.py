@@ -2,7 +2,7 @@ import pandas as pd
 import glob
 
 # Path to the folder containing the roster files
-folder_path = 'FA24 Grade Rosters/' # Adjust to relevant semester
+folder_path = 'SP25 Grade Rosters/' # Adjust to relevant semester
 file_pattern = folder_path + '*.xlsx'  # Adjust extension if CSV or other format
 
 # Get a list of all roster files in the folder
