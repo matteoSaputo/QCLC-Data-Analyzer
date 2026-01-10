@@ -22,7 +22,7 @@ plt.xticks(rotation=45, fontsize=10, ha='right')  # Rotate x-axis labels for bet
 
 # Save the chart as a PNG file
 plt.tight_layout()  # Ensure everything fits
-plt.savefig('Relevant_graphs/Top_30_Frequent_Visitors.png')  # Save to the folder
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Top_30_Frequent_Visitors.png')  # Save to the folder
 plt.show() # Display the chart for debugging purposes
 plt.close()  # Close the figure to free memory
 

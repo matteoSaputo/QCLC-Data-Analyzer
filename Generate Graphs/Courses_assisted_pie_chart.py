@@ -7,10 +7,10 @@ check_in_form = pd.read_excel('course_validation.xlsx')
 import matplotlib.pyplot as plt
 
 # Get the value counts of courses
-course_counts = check_in_form['what course do you need assistance with?'].value_counts()
+course_counts = check_in_form['what course do you need assistance with'].value_counts()
 
 # Define the threshold percentage
-threshold_percentage = 0.75  # Combine courses contributing less than 0.75% of the total
+threshold_percentage = 1.0  # Combine courses contributing less than 0.75% of the total
 
 # Calculate the total count
 total_count = course_counts.sum()
@@ -52,7 +52,7 @@ plt.ylabel('')  # Remove the default y-axis label
 
 # Save the pie chart
 plt.tight_layout()
-plt.savefig('Relevant_graphs/Courses_Assisted_Pie_Chart.png')  # Save to the folder
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Courses_Assisted_Pie_Chart.png')  # Save to the folder
 plt.show() # Display the chart for debugging purposes
 plt.close()  # Close the figure to free memory
 

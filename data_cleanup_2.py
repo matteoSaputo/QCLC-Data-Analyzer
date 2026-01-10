@@ -31,7 +31,7 @@ display(all_enrolled)
 
 # Merge on 'student id' and other unique identifiers
 merged = check_in_form.merge(all_enrolled, 
-                             on=['student id'], 
+                             on=['student id', 'first name', 'last name'], 
                              how='left', 
                              indicator=True)
 

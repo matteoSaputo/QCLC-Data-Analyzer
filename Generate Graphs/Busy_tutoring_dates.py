@@ -19,19 +19,21 @@ holidays = [
 ]
 holidays = pd.to_datetime(holidays).date
 
+check_in_form = check_in_form[check_in_form['i am here to'].str.lower().str.contains('tutor', na=False)]
+
 # Exclude holidays
-# check_in_form = check_in_form[~check_in_form['date'].isin(holidays)]
+check_in_form = check_in_form[~check_in_form['date'].isin(holidays)]
 
 # Count occurrences by date
 date_counts = check_in_form['date'].value_counts().sort_index()
 
 # Plot
-date_counts.plot(kind='line', title='Activity Volume over the Semester', figsize=(10, 6))
+date_counts.plot(kind='line', title='Tutoring Activity Volume over the Semester', figsize=(10, 6))
 plt.ylabel('Visitations')
 plt.xlabel('Date')
 
 # Save
 plt.tight_layout()
-plt.savefig('./QCLC-Data-Analyzer/Relevant_graphs/Busy_dates.png')
+plt.savefig('./QCLC-Data-Analyzer/Relevant_graphs/Busy_tutoring_dates.png')
 plt.show()
 plt.close()

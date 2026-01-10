@@ -15,7 +15,7 @@ grade_to_numeric = {
 
 # Load cleaned check-in form and roster data
 check_in_form = pd.read_excel('course_validation.xlsx')
-roster = pd.read_excel('combined_roster.xlsx')
+roster = pd.read_excel('combined_Roster.xlsx')
 
 # Map grades to numeric values in the roster
 roster['grade_numeric'] = roster['grade'].map(grade_to_numeric)
@@ -26,9 +26,10 @@ roster.columns = roster.columns.str.lower().str.strip()
 check_in_form['student id'] = check_in_form['student id'].astype(str).str.strip()
 roster['id'] = roster['id'].astype(str).str.strip()
 roster['catalog'] = roster['catalog'].astype(str).str.strip()
+check_in_form['what course do you need assistance with'] = check_in_form['what course do you need assistance with'].astype(str).str.upper().str.strip()
 
 # Get all unique courses from the check-in form
-unique_courses = check_in_form['what course do you need assistance with?'].dropna().unique()
+unique_courses = check_in_form['what course do you need assistance with'].dropna().unique()
 
 # Loop through each course and create a graph
 for course in unique_courses:
@@ -44,7 +45,7 @@ for course in unique_courses:
 
 
     # Filter data for the course
-    check_in_course = check_in_form[check_in_form['what course do you need assistance with?'] == course]
+    check_in_course = check_in_form[check_in_form['what course do you need assistance with'] == course]
     roster_course = roster[(roster['subject'] == subject) & (roster['catalog'] == catalog)]
 
     # Add a tutoring flag to the roster
@@ -143,7 +144,7 @@ for course in unique_courses:
     plt.tight_layout()
 
     # Save the plot to a file
-    plt.savefig(f'Grade_Distributions/Grade_Distribution_{course}.png')  # Saves each graph as a PNG file
+    plt.savefig(f'QCLC-Data-Analyzer/Grade_Distributions/Grade_Distribution_{course}.png')  # Saves each graph as a PNG file
     plt.close()  # Close the plot to save memory
 
 print("Graphs for all courses have been generated and saved.")

@@ -6,7 +6,7 @@ check_in_form = pd.read_excel('course_validation.xlsx')
 hours_worked = pd.read_excel('tutor_hours_worked.xlsx')
 
 # Standardize the tutor names in both DataFrames
-check_in_form['who assisted?'] = check_in_form['who assisted?'].str.strip().str.lower()
+check_in_form['who assisted'] = check_in_form['who assisted'].str.strip().str.lower()
 hours_worked['Tutor Name'] = hours_worked['Tutor Name'].str.strip().str.lower()
 
 # Ensure 'start time' is in datetime format

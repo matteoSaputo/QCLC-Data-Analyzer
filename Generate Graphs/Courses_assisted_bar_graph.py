@@ -4,22 +4,31 @@ import matplotlib.pyplot as plt
 # Load the check-in form
 check_in_form = pd.read_excel('course_validation.xlsx')
 
+# Filter out CSCI System
+check_in_form = check_in_form[
+    check_in_form['what course do you need assistance with'] != 'CSCI SYSTEM'
+]
+
 # Get the value counts of courses
-course_counts = check_in_form['what course do you need assistance with?'].value_counts()
+# check_in_form['what course do you need assistance with'] = check_in_form['what course do you need assistance with'].astype(str).str.upper().str.strip()
+course_counts = check_in_form['what course do you need assistance with'].value_counts()
 
 # Define the threshold percentage
-threshold_percentage = 0.75  # Combine courses contributing less than 0.75% of the total
+threshold_percentage = 1.0  # Combine courses contributing less than 0.75% of the total
 
 # Calculate the total count
 total_count = course_counts.sum()
 
 # Separate major courses and group smaller ones into "Other"
 filtered_courses = course_counts[course_counts / total_count * 100 >= threshold_percentage]
-other_count = course_counts[course_counts / total_count * 100 < threshold_percentage].sum()
+# other_count = course_counts[course_counts / total_count * 100 < threshold_percentage].sum()
 
-# Add "Other" to the filtered courses if applicable
-if other_count > 0:
-    filtered_courses['Other'] = other_count
+# # Add "Other" to the filtered courses if applicable
+# if other_count > 0:
+#     filtered_courses['Other'] = other_count
+
+# Get top 20 courses only
+filtered_courses = filtered_courses.head(20)
 
 # Create the bar graph
 fig, ax = plt.subplots(figsize=(20, 10))
@@ -31,7 +40,7 @@ for bar, value in zip(bars, filtered_courses):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
         bar.get_height() + 1,
-        f'{percentage:.1f}%',
+        f'{value}',
         ha='center',
         fontsize=12
     )
@@ -45,7 +54,7 @@ plt.yticks(fontsize=12)
 
 # Save the bar graph
 plt.tight_layout()
-plt.savefig('Relevant_graphs/Courses_Assisted_Bar_Graph.png')  # Save to the folder
+plt.savefig('QCLC-Data-Analyzer/Relevant_graphs/Courses_Assisted_Bar_Graph.png')  # Save to the folder
 plt.show() # Display the chart for debugging purposes
 plt.close()  # Close the figure to free memory
 
